@@ -1,11 +1,11 @@
+import java.util.*;
 class Solution {
     public int minimizeSum(int[] nums) {
-        int n=nums.length;
         Arrays.sort(nums);
-        int a=nums[n-1]-nums[2];
-        int b=nums[n-2]-nums[1];
-        int c=nums[n-3]-nums[0];
-        int res=Math.min(a,Math.min(b,c));
-        return res;
+        int n=nums.length,ans=Integer.MAX_VALUE;
+        for(int i=0;i<=2;i++){
+            ans=Math.min(ans,nums[n-1-(2-i)]-nums[i]);
+        }
+        return ans;
     }
 }
